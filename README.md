@@ -146,4 +146,15 @@ mvn spring-boot:run
 
 ### ### 📊 Resiliência
 
-Foi utilizado Resilience4j para adicionar tolerância a falhas nas integrações externas, com retry básico.
+A aplicação implementa mecanismos de tolerância a falhas nas integrações externas utilizando Resilience4j, garantindo maior robustez e continuidade do processamento mesmo em cenários de instabilidade.
+
+Foram aplicados os seguintes padrões:
+
+- **Circuit Breaker**  
+  Evita chamadas contínuas a serviços externos indisponíveis, interrompendo temporariamente a comunicação após um número de falhas.
+
+- **Retry**  
+  Realiza novas tentativas automáticas em caso de falhas transitórias, aumentando a chance de sucesso sem intervenção manual.
+
+- **Fallback**  
+  Em caso de falha definitiva, retorna uma resposta segura (ex: lista vazia), permitindo que o sistema continue operando com dados parciais.

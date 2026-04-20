@@ -6,6 +6,29 @@ spring:
     hibernate:
       ddl-auto: update
 
+resilience4j:
+  circuitbreaker:
+    instances:
+      api1:
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+
+      api2:
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+
+  retry:
+    instances:
+      api1:
+        maxAttempts: 3
+        waitDuration: 1s
+
+      api2:
+        maxAttempts: 3
+        waitDuration: 1s
+
 management:
   endpoints:
     web:

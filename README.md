@@ -93,26 +93,22 @@ Password: (pegar token gerado no console da aplicacao)
 
 Escolher método HTTP (GET/POST)
 
-Inserir URL:
-POST http://localhost:8080/users/sync
-
-
 📡 Endpoints
 🔄 Sincronização
 
-POST /users/sync
+POST http://localhost:8080/users/sync
 
 Integra dados das APIs externas, normaliza e persiste no banco.
 
 📄 Listagem de usuários
 
-GET /users
+GET http://localhost:8080/users
 
 Retorna todos os usuários armazenados.
 
 🔍 Filtro por status
 
-GET /users?status=ACTIVE
+GET http://localhost:8080/users?status=ACTIVE
 
 Filtra usuários pelo status informado.
 
